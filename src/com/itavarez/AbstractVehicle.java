@@ -13,6 +13,7 @@ public abstract class AbstractVehicle {
         this.fuel = fuel;
     }
 
+    //Default constructor if the child class doesn't called the Super()
     public  AbstractVehicle() {
         fuel = 1;
     }
