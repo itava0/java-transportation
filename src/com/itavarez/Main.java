@@ -27,5 +27,27 @@ public class Main {
 	    HorseFromVehicle eclipse = new HorseFromVehicle("Eclipse");
 	    System.out.println("Eclipse " + eclipse.getFuel());
 
+		HorseFromVehicle trigger = new HorseFromVehicle("Trigger", 10);
+		HorseFromVehicle seattleSlew = new HorseFromVehicle("Seattle Slew", 10);
+		HorseFromVehicle americanPharoah = new HorseFromVehicle("American Pharoah", 10);
+
+
+		Auto vw = new Auto(1, "EuroVan", 2000);
+		Auto toyota = new Auto(10, "Tundra", 1998);
+		Auto honda = new Auto (5, "Accord", 2003);
+
+		ArrayList<AbstractVehicle> myList = new ArrayList<AbstractVehicle>();
+		myList.add(secretariat);
+		myList.add(trigger);
+		myList.add(seattleSlew);
+		myList.add(americanPharoah);
+		myList.add(eclipse);
+		myList.add(vw);
+		myList.add(toyota);
+		myList.add(honda);
+
+		System.out.println();
+		System.out.println("*** This List ***");
+		System.out.println(myList.toString());
     }
 }
