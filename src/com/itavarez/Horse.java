@@ -1,5 +1,7 @@
 package com.itavarez;
 
+//Object -> Animal  -> Horse
+//          Vehicle
 public class Horse implements Vehicle, Animal {
 
     //class attribute
