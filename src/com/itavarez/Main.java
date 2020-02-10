@@ -3,11 +3,14 @@ package com.itavarez;
 import java.util.*;
 
 public class Main {
+	public static ArrayList<AbstractVehicle> filteredList = new ArrayList<AbstractVehicle>();
 	public static void printVehicles(ArrayList<AbstractVehicle> vehicles, CheckVehicle tester) {
 
+		filteredList.clear();
 		for (AbstractVehicle v: vehicles) {
 			if (tester.test(v)) {
 				System.out.println(v.getName() + " " + v.getFuel());
+				filteredList.add(v);
 			}
 		}
 	}
@@ -64,6 +67,10 @@ public class Main {
 		//getFuelLevel() < 0
 		System.out.println();
 		System.out.println("*** Filter List ***");
-		printVehicles(myList, v -> (v.getFuel() > 0));
+		// I'm passing the Array myList, and filter it based on their fuel level
+		printVehicles(myList, v -> (v.getFuel() < 0)); // returns boolean
+
+		System.out.println("\nHorse with positive Fuel");
+		printVehicles(myList, v -> (v.getFuel() > 0) && (v  instanceof HorseFromVehicle));
     }
 }
