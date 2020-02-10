@@ -3,8 +3,15 @@ package com.itavarez;
 import java.util.*;
 
 public class Main {
+	public static void printVehicles(ArrayList<AbstractVehicle> vehicles, CheckVehicle tester) {
 
-    public static void main(String[] args) {
+		for (AbstractVehicle v: vehicles) {
+			if (tester.test(v)) {
+				System.out.println(v.getName() + " " + v.getFuel());
+			}
+		}
+	}
+	public static void main(String[] args) {
 		System.out.println("\n*** From Interfaces Classes ***");
 		//Creating new Objects
 	    Horse seabiscuit = new Horse("Seabiscuit");
@@ -26,6 +33,7 @@ public class Main {
 
 	    HorseFromVehicle eclipse = new HorseFromVehicle("Eclipse");
 	    System.out.println("Eclipse " + eclipse.getFuel());
+	    eclipse.move(10);
 
 		HorseFromVehicle trigger = new HorseFromVehicle("Trigger", 10);
 		HorseFromVehicle seattleSlew = new HorseFromVehicle("Seattle Slew", 10);
@@ -33,6 +41,8 @@ public class Main {
 
 
 		Auto vw = new Auto(1, "EuroVan", 2000);
+		vw.move();
+		vw.move(5);
 		Auto toyota = new Auto(10, "Tundra", 1998);
 		Auto honda = new Auto (5, "Accord", 2003);
 
@@ -49,5 +59,11 @@ public class Main {
 		System.out.println();
 		System.out.println("*** This List ***");
 		System.out.println(myList.toString());
+
+		//Filter list
+		//getFuelLevel() < 0
+		System.out.println();
+		System.out.println("*** Filter List ***");
+		printVehicles(myList, v -> (v.getFuel() > 0));
     }
 }
